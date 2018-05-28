@@ -1,0 +1,6 @@
+C:\Users\rtusseau\Documents\Cours\cdpn-graphql\Pokémoun\Pokémoun.DB\bin\Debug\netcoreapp2.0\Pokémoun.DB.deps.json
+C:\Users\rtusseau\Documents\Cours\cdpn-graphql\Pokémoun\Pokémoun.DB\bin\Debug\netcoreapp2.0\Pokémoun.DB.dll
+C:\Users\rtusseau\Documents\Cours\cdpn-graphql\Pokémoun\Pokémoun.DB\obj\Debug\netcoreapp2.0\Pokémoun.DB.csprojResolveAssemblyReference.cache
+C:\Users\rtusseau\Documents\Cours\cdpn-graphql\Pokémoun\Pokémoun.DB\obj\Debug\netcoreapp2.0\Pokémoun.DB.csproj.CoreCompileInputs.cache
+C:\Users\rtusseau\Documents\Cours\cdpn-graphql\Pokémoun\Pokémoun.DB\obj\Debug\netcoreapp2.0\Pokémoun.DB.AssemblyInfoInputs.cache
+C:\Users\rtusseau\Documents\Cours\cdpn-graphql\Pokémoun\Pokémoun.DB\obj\Debug\netcoreapp2.0\Pokémoun.DB.AssemblyInfo.cs

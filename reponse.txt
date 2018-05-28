@@ -1,0 +1,7 @@
+GraphQL : Facebook en 2012, pour unifier la gestion des appel à leur API pour la refonte de leurs applications mobiles
+PHP : graphql-php
+Python : Graphene
+.NET : graphql-dotnet et graphql-net
+Node.JS : GraphQL.js, express-graphql pour une utilisation de express
+React : Relay
+Angular : Appolo-client
