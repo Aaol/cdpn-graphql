@@ -25,6 +25,8 @@ namespace GitHub
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddCors();
+
             services.AddMvc()
                 .AddJsonOptions(options =>
                 {
@@ -43,7 +45,16 @@ namespace GitHub
                 app.UseDeveloperExceptionPage();
             }
 
+            app.UseCors(builder =>
+            {
+                builder
+                .WithOrigins("http://localhost:4200")
+                .AllowAnyMethod()
+                .AllowAnyHeader(); 
+
+            });
             app.UseMvc();
+
         }
     }
 }

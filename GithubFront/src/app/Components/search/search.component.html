@@ -1,0 +1,13 @@
+<mat-form-field>
+    <input matInput placeholder="Rechercher" [(ngModel)]="searchModel.userName">
+</mat-form-field>
+
+  <button mat-button (click)="search()">
+    Rechercher
+  </button>
+
+<div>
+  <app-result *ngFor="let repo of repos" [repository]="repo">
+
+  </app-result>
+  </div>
