@@ -13,6 +13,7 @@ export class AppComponent implements OnInit {
 
   }
   ngOnInit(): void {
-    this.pokemonService.searchByName('').do(res => console.log(res)).subscribe(res => this.pokemons = res.pokemons);
+    this.pokemonService.pokemons.subscribe(res => this.pokemons = res);
+    this.pokemonService.searchAll();
   }
 }

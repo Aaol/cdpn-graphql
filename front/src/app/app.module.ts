@@ -10,6 +10,7 @@ import { HttpLinkModule } from 'apollo-angular-link-http';
 import { ApolloModule } from 'apollo-angular';
 import { ApolloService } from './Services/apollo.service';
 import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 import { PokemonComponent } from './components/pokemon/pokemon.component';
 import { SearchComponent } from './components/search/search.component';
 import { HttpClientModule } from '@angular/common/http';
@@ -23,6 +24,7 @@ import { HttpClientModule } from '@angular/common/http';
     BrowserModule,
     FormsModule,
     HttpClientModule,
+    ReactiveFormsModule,
     ApolloModule,
     HttpLinkModule,
     AppRoutingModule
