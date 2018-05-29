@@ -1,0 +1,14 @@
+query RepositoriesByUserName($userName: String!) {
+  user(login: $userName) {
+    repositories(last: 5, isFork: false, isLocked: false) {
+      nodes {
+        name
+        languages(first: 5) {
+          nodes {
+            name
+          }
+        }
+      }
+    }
+  }
+}

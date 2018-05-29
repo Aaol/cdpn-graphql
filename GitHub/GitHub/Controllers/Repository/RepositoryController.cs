@@ -1,4 +1,5 @@
-﻿using GraphQL.Common.Request;
+﻿using GitHub.Controllers.Repository;
+using GraphQL.Common.Request;
 using GraphQL.Common.Response;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
@@ -17,22 +18,18 @@ namespace GitHub.Controllers
         {
         }
 
-        [HttpGet("repositories")]
-        public async Task<IActionResult> GetUserRepositories()
+        [HttpPost("repositories")]
+        public async Task<IActionResult> GetUserRepositories([FromBody] SearchUserRepository value)
         {
             try
             {
                 GraphQLRequest request = new GraphQLRequest();
-                request.Query = @"query{
-                viewer {
-                    name
-                   repositories(last: 4) {
-                        nodes {
-                            name
-                        }
-                    }
-                }
-            }";
+                request.Query = this.LoadQueryFromFile("RepositoriesByUserName");
+                request.Variables = new
+                {
+                    userName = value.UserName
+                };
+                request.OperationName = "RepositoriesByUserName";
                 GraphQLResponse response = await this.Client.PostAsync(request);
                 return Ok(response.Data);
             }
