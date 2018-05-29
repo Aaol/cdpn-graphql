@@ -8,5 +8,6 @@ namespace GitHub.Controllers.Repository
     public class SearchUserRepository
     {
         public string UserName { get; set; }
+        public int Count { get; set; }
     }
 }

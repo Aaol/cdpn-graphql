@@ -1,6 +1,6 @@
-query RepositoriesByUserName($userName: String!) {
+query RepositoriesByUserName($userName: String!, $count: Int = 5) {
   user(login: $userName) {
-    repositories(last: 5, isFork: false, isLocked: false) {
+    repositories(first: $count, isFork: false, isLocked: false) {
       nodes {
         name
         languages(first: 5) {

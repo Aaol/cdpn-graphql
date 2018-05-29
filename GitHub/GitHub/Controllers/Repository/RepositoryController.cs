@@ -25,10 +25,22 @@ namespace GitHub.Controllers
             {
                 GraphQLRequest request = new GraphQLRequest();
                 request.Query = this.LoadQueryFromFile("RepositoriesByUserName");
-                request.Variables = new
+                if (value.Count == 0)
                 {
-                    userName = value.UserName
-                };
+                    request.Variables = new
+                    {
+                        userName = value.UserName
+                    };
+                }
+                else
+                {
+                    request.Variables = new
+                    {
+                        userName = value.UserName,
+                        count = value.Count
+                    };
+                }
+
                 request.OperationName = "RepositoriesByUserName";
                 GraphQLResponse response = await this.Client.PostAsync(request);
                 return Ok(response.Data);
