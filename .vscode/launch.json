@@ -10,9 +10,9 @@
             "request": "launch",
             "preLaunchTask": "build",
             // If you have changed target frameworks, make sure to update the program path.
-            "program": "${workspaceFolder}/Pokémoun/Pokémoun/bin/Debug/netcoreapp2.0/Pokémoun.dll",
+            "program": "${workspaceFolder}/Books/BookApi/BookApi/bin/Debug/netcoreapp2.0/BookApi.dll",
             "args": [],
-            "cwd": "${workspaceFolder}/Pokémoun/Pokémoun",
+            "cwd": "${workspaceFolder}/Books/BookApi/BookApi",
             "stopAtEntry": false,
             "internalConsoleOptions": "openOnSessionStart",
             "launchBrowser": {
