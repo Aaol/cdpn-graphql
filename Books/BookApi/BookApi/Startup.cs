@@ -4,6 +4,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.EntityFrameworkCore;
 using BooksApiDbLib;
+using BookApi.Schema;
+using GraphQLCore.Type;
 
 namespace BookApi
 {
@@ -22,6 +24,8 @@ namespace BookApi
             services.AddMvc();
             services.AddDbContext<BookContext>(options =>
             options.UseSqlServer(Configuration.GetConnectionString("Book")));
+            
+            services.AddSingleton<IGraphQLSchema, BookSchema>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -33,7 +37,6 @@ namespace BookApi
             }
 
             app.UseMvc();
-
         }
     }
 }

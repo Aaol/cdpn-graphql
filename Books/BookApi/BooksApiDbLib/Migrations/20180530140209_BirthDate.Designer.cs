@@ -4,14 +4,16 @@ using BooksApiDbLib;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace BooksApiDbLib.Migrations
 {
     [DbContext(typeof(BookContext))]
-    partial class BookContextModelSnapshot : ModelSnapshot
+    [Migration("20180530140209_BirthDate")]
+    partial class BirthDate
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -25,6 +27,8 @@ namespace BooksApiDbLib.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<long?>("AuthorIdentifier");
+
                     b.Property<DateTime>("BirthDate");
 
                     b.Property<string>("FirstName")
@@ -35,6 +39,8 @@ namespace BooksApiDbLib.Migrations
 
                     b.HasKey("Identifier")
                         .HasName("PK_Author");
+
+                    b.HasIndex("AuthorIdentifier");
 
                     b.ToTable("Author");
                 });
@@ -85,10 +91,17 @@ namespace BooksApiDbLib.Migrations
                     b.ToTable("BookComments");
                 });
 
+            modelBuilder.Entity("BooksApiDbLib.Models.Author", b =>
+                {
+                    b.HasOne("BooksApiDbLib.Models.Author")
+                        .WithMany("Books")
+                        .HasForeignKey("AuthorIdentifier");
+                });
+
             modelBuilder.Entity("BooksApiDbLib.Models.Book", b =>
                 {
                     b.HasOne("BooksApiDbLib.Models.Author", "Author")
-                        .WithMany("Books")
+                        .WithMany()
                         .HasForeignKey("AuthorIdentifier")
                         .OnDelete(DeleteBehavior.Cascade);
                 });

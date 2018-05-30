@@ -11,7 +11,7 @@ namespace BooksApiDbLib.Models
         [Required]
         public string Comment { get; set; }
         [Required]        
-        public Book Book { get; set; }
+        public Author Book { get; set; }
         public DateTime PublishDate { get; set; }
         [Required]
         public long Identifier { get; set; }
