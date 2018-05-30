@@ -7,3 +7,6 @@
 /GitHub/GitHub/obj
 /GitHub/GitHub/bin/Debug/netcoreapp2.0
 GitHub/GitHub/appsettings.json
+/Books/BookApi/.vs/BookApi/v15
+/Books/BookApi/BookApi/obj
+/Books/BookApi/BooksApiDbLib/obj
