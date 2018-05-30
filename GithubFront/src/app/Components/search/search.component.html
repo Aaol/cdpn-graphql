@@ -7,7 +7,11 @@
   </button>
 
 <div>
-  <app-result *ngFor="let repo of repos" [repository]="repo">
+  <mat-grid-list cols="4" rowHeight="150px">
+    <mat-grid-tile  *ngFor="let repo of repos">
+        <app-result [repository]="repo">
+          </app-result>
+    </mat-grid-tile>
+  </mat-grid-list>
 
-  </app-result>
   </div>

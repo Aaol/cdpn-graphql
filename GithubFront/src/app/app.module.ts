@@ -6,7 +6,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavBarComponent } from './Components/nav-bar/nav-bar.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatButtonModule, MatMenuModule, MatToolbarModule, MatInputModule } from '@angular/material';
+import { MatButtonModule, MatMenuModule, MatToolbarModule, MatInputModule, MatCardModule, MatGridListModule } from '@angular/material';
 import { SearchComponent } from './Components/search/search.component';
 import { ResultComponent } from './Components/result/result.component';
 import {platformBrowserDynamic} from '@angular/platform-browser-dynamic';
@@ -27,6 +27,8 @@ import { HeaderInterceptorService } from './Services/Interceptors/header-interce
     MatButtonModule,
     MatMenuModule,
     MatInputModule,
+    MatCardModule,
+    MatGridListModule,
     MatToolbarModule,
     HttpClientModule,
     FormsModule,
