@@ -13,9 +13,9 @@ namespace BooksApiDbLib.Models
         public string Type { get; set; }
         [Required]        
         public Author Author { get; set; }
-        public DateTime PublishDate { get; set; }
+        public DateTime? PublishDate { get; set; }
         [Required]        
-        public float Price { get; set; }
+        public float? Price { get; set; }
         [Required]
         public long Identifier { get; set; }
 

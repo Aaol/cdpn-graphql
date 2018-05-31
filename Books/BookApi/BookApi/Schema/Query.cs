@@ -37,7 +37,6 @@ namespace BookApi.Schema
             try
             {
                 response.SetEntity(func.Invoke(value));
-                response.SetSuccess("mon beau succes");
             }
             catch (System.Exception e)
             {
@@ -58,8 +57,6 @@ namespace BookApi.Schema
             try
             {
                 response.SetEntity(func.Invoke());
-                response.SetSuccess("mon beau succes");
-
             }
             catch (System.Exception e)
             {

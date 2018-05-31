@@ -6,7 +6,7 @@ namespace BookApi.Schema.Types
 {
     public class GraphQlEntityResponse<T> : GraphQLObjectType<EntityResponse<T>>
     {
-        public GraphQlEntityResponse() : base("EntityReponse<T>", "Objet contenant l'objet de retour dans entity et d'autres informations")
+        public GraphQlEntityResponse() : base("EntityReponse<"+ typeof(T).Name +">", "Objet contenant l'objet de retour dans entity et d'autres informations")
         {
             this.Field("entity", e => e.Entity, "L'objet de retour de la requête");
             this.Field("errors", e => e.Errors, "Les erreurs liés à la requete");
