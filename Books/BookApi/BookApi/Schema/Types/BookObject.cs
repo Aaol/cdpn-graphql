@@ -3,9 +3,9 @@ using GraphQLCore.Type;
 
 namespace BookApi.Schema.Types
 {
-    public class GraphQlBookObject : GraphQlIHaveIdentifierType<Book>
+    public class BookObject : GraphQlIHaveIdentifierType<Book>
     {
-        public GraphQlBookObject() : base("Book", "livre", "livre")
+        public BookObject() : base("Book", "livre", "livre")
         {
             this.Field("author", e => e.Author, "L'auteur du libre");
             this.Field("price", e => e.Price, "Le prix du livre");

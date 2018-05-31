@@ -5,11 +5,11 @@ using GraphQLCore.Type;
 
 namespace BookApi.Schema.Types
 {
-    public class EntityResponseListObject<T> : GraphQlEntityResponse<List<T>>
+    public class EntityResponseListObject<T> : EntityResponseObject<List<T>>
     {
         public EntityResponseListObject() : base("List<" + typeof(T).Name + ">")
         {
-            
+
         }
     }
 }

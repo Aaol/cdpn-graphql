@@ -6,12 +6,12 @@ namespace BooksApiDbLib.Models
     /// <summary>
     ///     Classe représentant un commentaire de livre
     /// </summary>
-    public class BookComment
+    public class BookComment : IHaveIdentifier
     {
         [Required]
         public string Comment { get; set; }
         [Required]        
-        public Author Book { get; set; }
+        public Book Book { get; set; }
         public DateTime PublishDate { get; set; }
         [Required]
         public long Identifier { get; set; }

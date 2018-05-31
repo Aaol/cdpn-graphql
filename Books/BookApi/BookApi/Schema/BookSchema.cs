@@ -16,23 +16,24 @@ namespace BookApi.Schema
             Mutation rootMutation = new Mutation();
             this.AddKnownType(new DateTimeObject());
 
-            this.AddKnownType(new GraphQlAuthorObject());
-            this.AddKnownType(new GraphQlBookObject());
-
-
-            this.AddKnownType(new EntityResponseListObject<Author>());
-            this.AddKnownType(new GraphQlEntityResponse<Author>());
-
-            this.AddKnownType(new EntityResponseListObject<Book>());
-            this.AddKnownType(new GraphQlEntityResponse<Book>());
-
-            this.AddKnownType(new GraphQlAuthorInputObject());
+            this.AddNewType<Author, AuthorObject, AuthorInputObject>();
+            this.AddNewType<BookComment, BookCommentObject, BookCommentInputObject>();
+            this.AddNewType<Book, BookObject, BookInputObject>();
 
             this.AddKnownType(rootQuery);
             this.AddKnownType(rootMutation);
 
             this.Query(rootQuery);
             this.Mutation(rootMutation);
+        }
+        private void AddNewType<T, U,V>()
+        where U: GraphQLObjectType, new()
+        where V: GraphQLInputObjectType, new()
+        {
+            this.AddKnownType(new EntityResponseListObject<T>());
+            this.AddKnownType(new EntityResponseObject<T>());
+            this.AddKnownType(new U());
+            this.AddKnownType(new V());
         }
     }
 }
