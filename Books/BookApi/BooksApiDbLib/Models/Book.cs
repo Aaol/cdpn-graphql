@@ -6,7 +6,7 @@ namespace BooksApiDbLib.Models
     /// <summary>
     ///     Classe représentant un livre
     /// </summary>
-    public class Book
+    public class Book: IHaveIdentifier
     {
         [Required]
         public string Title { get; set; }

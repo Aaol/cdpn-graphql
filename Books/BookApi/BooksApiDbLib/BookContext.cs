@@ -6,7 +6,7 @@ namespace BooksApiDbLib
     public class BookContext : DbContext
     {
         public DbSet<Author> Authors { get; set; }
-        public DbSet<Author> Books { get; set; }
+        public DbSet<Book> Books { get; set; }
         public DbSet<BookComment> BookComments { get; set; }
         public BookContext(DbContextOptions<BookContext> options)
             : base(options)

@@ -27,9 +27,9 @@ namespace BookApi.Controllers
         }
 
         [HttpPost("book")]
-        public IActionResult PostBook([FromBody]Author book)
+        public IActionResult PostBook([FromBody]Book book)
         {
-            EntityResponse<Author> response = new EntityResponse<Author>();
+            EntityResponse<Book> response = new EntityResponse<Book>();
             try
             {
                 this.Entities.Books.Add(book);
@@ -40,7 +40,7 @@ namespace BookApi.Controllers
             {
                 response.AddError(e.Message);
             }
-            return Ok(this.Entities.Authors);
+            return Ok(book);
         }
         [HttpPost("author")]
         public IActionResult PostAuthor([FromBody]Author author)
@@ -56,7 +56,7 @@ namespace BookApi.Controllers
             {
                 response.AddError(e.Message);
             }
-            return Ok(this.Entities.Authors);
+            return Ok(author);
         }
         [HttpPost("graphql")]
         public JsonResult Post([FromBody] GraphiQLInput input)

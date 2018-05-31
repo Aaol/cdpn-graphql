@@ -14,8 +14,13 @@ namespace BookApi.Schema
         public Query() : base("Query", "")
         {
             BookService service = new BookService();
-            this.Field("test", () => service.GetFirst());
+
             this.Field("authors", () => ExecuteServiceQuery<List<Author>>(service.GetAuthors));
+            this.Field("author", (long id) => ExecuteServiceQuery<Author, long>(service.GetAuthorById, id));
+            
+            this.Field("books", () => ExecuteServiceQuery<List<Book>>(service.GetBooks));
+            this.Field("book", (long id) => ExecuteServiceQuery<Book, long>(service.GetBookById, id));
+            
         }
 
         /// <summary>
@@ -26,7 +31,7 @@ namespace BookApi.Schema
         /// <typeparam name="T">Valeur de sortie</typeparam>
         /// <typeparam name="U">Valeur d'entrée</typeparam>
         /// <returns></returns>
-        public EntityResponse<T> ExecuteServiceQuery<T,U>(Func<U,T> func, U value)
+        public EntityResponse<T> ExecuteServiceQuery<T, U>(Func<U, T> func, U value)
         {
             EntityResponse<T> response = new EntityResponse<T>();
             try
@@ -54,7 +59,7 @@ namespace BookApi.Schema
             {
                 response.SetEntity(func.Invoke());
                 response.SetSuccess("mon beau succes");
-                
+
             }
             catch (System.Exception e)
             {
