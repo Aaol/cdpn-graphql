@@ -10,7 +10,6 @@ namespace BookApi.Schema.InputTypes
         {
             this.Field("firstname", e => e.FirstName);
             this.Field("lastname", e => e.LastName);
-            this.Field("birthdate", e => e.BirthDate).WithDefaultValue(DateTime.Now);
         }
     }
 }
