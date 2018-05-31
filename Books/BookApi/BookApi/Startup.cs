@@ -6,6 +6,7 @@ using Microsoft.EntityFrameworkCore;
 using BooksApiDbLib;
 using BookApi.Schema;
 using GraphQLCore.Type;
+using BookApi.Services;
 
 namespace BookApi
 {

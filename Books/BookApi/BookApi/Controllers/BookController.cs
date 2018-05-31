@@ -4,10 +4,12 @@ using System.Dynamic;
 using System.Linq;
 using System.Threading.Tasks;
 using BookApi.Helpers;
+using BookApi.Schema;
 using BooksApiDbLib;
 using BooksApiDbLib.Models;
 using GraphQLCore.Type;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
 
 namespace BookApi.Controllers
@@ -16,8 +18,11 @@ namespace BookApi.Controllers
     public class BookController : BaseController
     {
         private IGraphQLSchema Schema { get; set; }
-        public BookController(BookContext context, IGraphQLSchema schema) : base(context)
+        private readonly ILogger _logger;
+        public BookController(BookContext context, 
+        ILogger<BookController> logger, IGraphQLSchema schema) : base(context)
         {
+            this._logger = logger;
             this.Schema = schema;
         }
 

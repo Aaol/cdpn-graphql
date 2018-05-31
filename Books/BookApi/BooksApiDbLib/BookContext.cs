@@ -11,6 +11,12 @@ namespace BooksApiDbLib
         public BookContext(DbContextOptions<BookContext> options)
             : base(options)
         { }
+        public BookContext() : this(new DbContextOptionsBuilder<BookContext>()
+        .UseSqlServer(@"Server=localhost;Database=Book;Trusted_Connection=True;")
+        .Options)
+        {
+
+        }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Author>()

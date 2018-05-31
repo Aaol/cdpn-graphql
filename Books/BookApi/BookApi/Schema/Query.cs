@@ -1,7 +1,9 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using BookApi.Helpers;
 using BookApi.Services;
+using BooksApiDbLib;
 using BooksApiDbLib.Models;
 using GraphQLCore.Type;
 
@@ -9,11 +11,11 @@ namespace BookApi.Schema
 {
     public class Query : GraphQLObjectType
     {
-        private BookService Service { get; set; }
-
         public Query() : base("Query", "")
         {
-            this.Field("authors", () => ExecuteServiceQuery<List<Author>>(Service.GetAuthors));
+            BookService service = new BookService();
+            this.Field("test", () => service.GetFirst());
+            this.Field("authors", () => ExecuteServiceQuery<List<Author>>(service.GetAuthors));
         }
 
         /// <summary>
@@ -30,6 +32,7 @@ namespace BookApi.Schema
             try
             {
                 response.SetEntity(func.Invoke(value));
+                response.SetSuccess("mon beau succes");
             }
             catch (System.Exception e)
             {
@@ -50,6 +53,8 @@ namespace BookApi.Schema
             try
             {
                 response.SetEntity(func.Invoke());
+                response.SetSuccess("mon beau succes");
+                
             }
             catch (System.Exception e)
             {

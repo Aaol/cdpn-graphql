@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using BooksApiDbLib;
 using BooksApiDbLib.Models;
@@ -7,14 +8,18 @@ namespace BookApi.Services
 {
     public class BookService
     {
-        private BookContext Entities {get;set;}
-        public BookService(BookContext entities)
+        private BookContext _Entities = new BookContext();
+        public BookService()
         {
-            this.Entities = entities;
         }
         public List<Author> GetAuthors()
         {
-            return this.Entities.Authors.ToList();
+           Debug.WriteLine("getauthors");
+            return this._Entities.Authors.ToList();
+        }
+        public Author GetFirst()
+        {
+            return this._Entities.Authors.First();
         }
     }
 }
