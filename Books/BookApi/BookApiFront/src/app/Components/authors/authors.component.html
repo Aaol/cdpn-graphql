@@ -1,0 +1,13 @@
+<div>
+  <mat-grid-list cols="4" rowHeight="150px">
+    <mat-grid-tile  *ngFor="let author of authors">
+      <mat-card (click)="redirectToAuthor(author)">
+        <mat-card-title>{{author.firstname}} {{author.lastname}}</mat-card-title>
+        <mat-card-content>
+          Né le : {{author.birthdate?.date}}
+        </mat-card-content>
+      </mat-card>
+    </mat-grid-tile>
+  </mat-grid-list>
+
+  </div>

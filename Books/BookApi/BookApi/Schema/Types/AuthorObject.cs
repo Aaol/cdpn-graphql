@@ -10,6 +10,7 @@ namespace BookApi.Schema.Types
             this.Field("firstname", e => e.FirstName, "Le prénom de l'auteur");
             this.Field("lastname", e => e.LastName, "Le nom de l'auteur");
             this.Field("birthdate", e => e.BirthDate, "La date de naissance de l'auteur");
+            this.Field("books", e=>e.Books, "Les livres écrits par l'auter");
         }
     }
 }

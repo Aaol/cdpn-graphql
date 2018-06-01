@@ -1,0 +1,20 @@
+<div *ngIf="author">
+
+  <mat-card>
+    <mat-card-title>{{author.firstname}} {{author.lastname}}</mat-card-title>
+    <mat-card-content>
+      Né le : {{author.birthdate?.date}}
+    </mat-card-content>
+  </mat-card>
+  <mat-grid-list cols="4" rowHeight="150px">
+    <mat-grid-tile *ngFor="let book of author.books">
+      <mat-card>
+        <mat-card-title>{{book.title}} ({{book.type}})</mat-card-title>
+        <mat-card-content>
+          Publié le : {{book.publishDate?.date}}
+        </mat-card-content>
+      </mat-card>
+    </mat-grid-tile>
+  </mat-grid-list>
+
+</div>

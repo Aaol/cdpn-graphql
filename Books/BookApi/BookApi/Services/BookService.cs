@@ -23,7 +23,8 @@ namespace BookApi.Services
 
         public Author GetAuthorById(long id)
         {
-            return this._Entities.Authors.First(author => author.Identifier == id);
+            return this._Entities.Authors.Include(author => author.Books)
+            .First(author => author.Identifier == id);
         }
 
         public Author AddAuthor(Author author)

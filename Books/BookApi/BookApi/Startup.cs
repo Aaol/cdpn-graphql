@@ -23,9 +23,11 @@ namespace BookApi
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
+            services.AddCors();
+
             services.AddDbContext<BookContext>(options =>
             options.UseSqlServer(Configuration.GetConnectionString("Book")));
-            
+
             services.AddSingleton<IGraphQLSchema, BookSchema>();
         }
 
@@ -36,7 +38,14 @@ namespace BookApi
             {
                 app.UseDeveloperExceptionPage();
             }
+            app.UseCors(builder =>
+                        {
+                            builder
+                            .WithOrigins("http://localhost:4200")
+                            .AllowAnyMethod()
+                            .AllowAnyHeader();
 
+                        });
             app.UseMvc();
         }
     }
