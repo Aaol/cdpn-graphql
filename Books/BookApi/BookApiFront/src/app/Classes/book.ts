@@ -6,6 +6,6 @@ export class Book extends HaveIdentifier  {
   title: string;
   type: string;
   author: Author;
-  publishDate: DateTime;
+  publishdate: DateTime;
   price: number;
 }
