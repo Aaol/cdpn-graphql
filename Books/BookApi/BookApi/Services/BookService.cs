@@ -88,8 +88,8 @@ namespace BookApi.Services
             }
             else
             {
-                typeof(T).GetProperties()
-                    .Where(property => property.GetType().Name == typeof(U).Name)
+                entity.GetType().GetProperties()
+                    .Where(property => property.Name == typeof(U).Name)
                     .First().SetValue(entity, parent);
                 this._Entities.Set<T>().Add(entity);
                 this._Entities.SaveChanges();
