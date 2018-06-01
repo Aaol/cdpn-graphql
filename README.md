@@ -1,7 +1,6 @@
 # CDPN-GraphQL
 ## Books
 Projet pour gérer une collection d'auteur et de livres en GraphQL.
-[Readme](books/bookapi)
 ## Github
 Utilisation de l'API GraphQL de Github pour récupérer des informations
 ## Pokémoun
