@@ -1,10 +1,14 @@
 <div *ngIf="author">
-
   <mat-card>
     <mat-card-title>{{author.firstname}} {{author.lastname}}</mat-card-title>
     <mat-card-content>
       Né le : {{author.birthdate?.date}}
     </mat-card-content>
+    <mat-card-actions>
+      <button mat-button (click)="addBook()">
+        Ajouter un livre
+      </button>
+    </mat-card-actions>
   </mat-card>
   <mat-grid-list cols="4" rowHeight="150px">
     <mat-grid-tile *ngFor="let book of author.books">

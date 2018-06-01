@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { Author } from '../../Classes/author';
 import { AuthorService } from '../../Services/author.service';
 import { ActivatedRoute } from '@angular/router';
+import { MatDialog } from '@angular/material';
+import { AddBookComponent } from '../add-book/add-book.component';
+import { InputBook } from '../../Classes/inputbook';
 
 @Component({
   selector: 'app-author',
@@ -12,7 +15,8 @@ export class AuthorComponent implements OnInit {
 
   author: Author;
   constructor(private authorService: AuthorService,
-  private route: ActivatedRoute) { }
+  private route: ActivatedRoute,
+private dialog: MatDialog) { }
 
   ngOnInit() {
     this.authorService.author.subscribe(res => {
@@ -24,5 +28,13 @@ export class AuthorComponent implements OnInit {
       }
     });
   }
-
+  addBook() {
+    const dialogRef = this.dialog.open(AddBookComponent);
+    dialogRef.afterClosed()
+    .subscribe((res: InputBook) => {
+      if (res != null) {
+        this.authorService.addBook(res);
+      }
+    });
+  }
 }

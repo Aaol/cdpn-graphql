@@ -9,7 +9,9 @@ import {
   MatToolbarModule,
   MatButtonModule,
   MatCardModule,
-  MatGridListModule
+  MatGridListModule,
+  MatDialogModule,
+  MatInputModule
 } from '@angular/material';
 import { AppComponent } from './app.component';
 import { NavBarComponent } from './Components/nav-bar/nav-bar.component';
@@ -19,7 +21,9 @@ import { GraphQlService } from './Services/graph-ql.service';
 import { environment } from '../environments/environment.prod';
 import { AuthorComponent } from './Components/author/author.component';
 import { AuthorService } from './Services/author.service';
-
+import { AddBookComponent } from './Components/add-book/add-book.component';
+import { FormsModule } from '@angular/forms';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 export function createApollo(httpLink: HttpLink) {
   return {
     link: httpLink.create({ uri: environment.apiUrl }),
@@ -32,7 +36,8 @@ export function createApollo(httpLink: HttpLink) {
     AppComponent,
     NavBarComponent,
     AuthorsComponent,
-    AuthorComponent
+    AuthorComponent,
+    AddBookComponent
   ],
   imports: [
     BrowserModule,
@@ -41,7 +46,11 @@ export function createApollo(httpLink: HttpLink) {
     MatToolbarModule,
     MatButtonModule,
     MatGridListModule,
+    FormsModule,
     MatCardModule,
+    MatDialogModule,
+    MatInputModule,
+    BrowserAnimationsModule,
     HttpLinkModule,
     AppRoutingModule
   ],
@@ -53,6 +62,9 @@ export function createApollo(httpLink: HttpLink) {
     },
     GraphQlService,
     AuthorService
+  ],
+  entryComponents: [
+    AddBookComponent
   ],
   bootstrap: [AppComponent]
 })
